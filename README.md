@@ -115,7 +115,7 @@ Query:
 
 
 **Request:**
-```json
+```javascript
 POST /importData
 Accept: application/json
 Content-Type: application/json
@@ -149,7 +149,7 @@ Content-Type: application/json
 
 
 **Request:**
-```json
+```javascript
 POST /search/data
 Accept: application/json
 Content-Type: application/json
@@ -182,7 +182,7 @@ select * from shelfease.books_master where title ILIKE '%harry potter boxed%'
 
 
 **Request:**
-```json
+```javascript
 POST /isbookavailable
 Accept: application/json
 Content-Type: application/json
@@ -210,7 +210,7 @@ select isavailable from shelfease.books_master where book_id=25257;
 
 
 **Request:**
-```json
+```javascript
 POST /members/all
 Accept: application/json
 Content-Type: application/json
@@ -241,7 +241,7 @@ select * from shelfease.members;
 
 
 **Request:**
-```json
+```javascript
 POST /members/all
 Accept: application/json
 Content-Type: application/json
@@ -270,7 +270,7 @@ update shelfease.members set book_list=ARRAY[25257] where member_id=4;
 
 
 **Request:**
-```json
+```javascript
 POST /returnbook
 Accept: application/json
 Content-Type: application/json
@@ -300,7 +300,7 @@ update shelfease.books_master set isavailable=true where book_id=25257;
 ## Add Book
 
 **Request:**
-```json
+```javascript
 POST /addbook
 Accept: application/json
 Content-Type: application/json
@@ -332,7 +332,7 @@ publication_date,publisher) values (3,'book1','kumar',4.0,'1','13','Ger'
 
 You send: name, email, phone
 **Request:**
-```json
+```javascript
 POST /addmembers
 Accept: application/json
 Content-Type: application/json
@@ -359,7 +359,7 @@ insert into shelfease.members (name, email,phone) values ('Harsh','w@gmail.com',
 
 You send: name, email, phone
 **Request:**
-```json
+```javascript
 POST /memberdelete
 Accept: application/json
 Content-Type: application/json
@@ -384,7 +384,7 @@ Content-Type: application/json
 
 You send: name, email, phone
 **Request:**
-```json
+```javascript
 POST /bookdelete
 Accept: application/json
 Content-Type: application/json
