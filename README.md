@@ -17,6 +17,7 @@ Created a user-friendly application for a local library to simplify daily tasks.
 - How to Run ?
 - DB Structure
 - API Docs
+- Queries
 ## Features
  - Login Authentication and logout
  - Import Books: Librarians can import books into DB (PostGre SQL). Allows Count, Title, Author, Isbn, Publisher, Pages as params.
@@ -73,3 +74,347 @@ password: admin_123
 
 
 <img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/060cdd33-bc78-4972-bb92-fcea1f0148c1.png" width="920" height="550"> 
+
+## API Docs
+
+https://kumar-harsh-frappe-api-dev-hiring-test.vercel.app/
+
+This API uses `POST` request to communicate and HTTP to indenticate status and errors. All responses come in standard JSON. All requests must include a `content-type` of `application/json`, `accept` of `application/json` and the body must be valid JSON.
+
+
+
+## Login
+**You send:**  Your  login credentials.
+
+
+**Request:**
+```json
+POST /user/verify
+Accept: application/json
+Content-Type: application/json
+
+Query: 
+
+{
+    'username': 'admin', 
+    'password': 'admin_123'
+}
+
+**Successful Response:**
+200 OK
+
+{
+    'users': [{'userid': 1, 'username': 'admin'}, {'userid': 2, 'username': 'devil'}, {'userid': 3, 'username': 'library'}],
+    'state': True
+ }
+```
+
+
+## Import Data
+**You send:**  Optional: title, author, isbn, publisher, pages, count.
+
+
+**Request:**
+```json
+POST /importData
+Accept: application/json
+Content-Type: application/json
+
+{
+    'count': '30',
+     'title': 'witchcraft'
+}
+
+**Successful Response:**
+200 OK
+
+
+{
+    'message': 'Data imported successfully and Data stored successfully',
+ 'data': [{'bookID': '2002', 'title': 'Harry Potter Schoolbooks 
+ Box Set: Two Classic Books from the Library of Hogwarts School
+  of Witchcraft and Wizardry', 'authors': 'J.K. Rowling', 'average_rating':
+  '4.40', 'isbn': '043932162X','isbn13': '9780439321624', 'language_code':
+    'eng', '  num_pages': '240', 'ratings_count': '11515',
+     'text_reviews_count': '139', 'publication_date': '11/1/2001',
+      'publisher': 'Arthur A. Levine'}], 'count': 1
+}
+
+```
+
+
+
+## Search DB
+**You send:**  Optional: title, author, isbn, publisher, pages .
+
+
+**Request:**
+```json
+POST /search/data
+Accept: application/json
+Content-Type: application/json
+
+select * from shelfease.books_master where title ILIKE '%harry potter boxed%'
+{
+
+     'title': 'harry potter boxed'
+}
+
+
+**Successful Response:**
+200 OK
+
+{
+    'message': 'Success', 'data': [{'  num_pages': 2690, 'authors': 
+    'J.K. Rowling/Mary GrandPré', 'average_rating': 4.78, 'bookID': 8,
+     'isbn': '0439682584', 'isbn13': '9780439682589', 'language_code':
+      'eng', 'publication_date': datetime.date(2004, 9, 13), 'publisher':
+       'Scholastic', 'ratings_count': 41428, 'text_reviews_count': 164,
+        'title': 'Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)',
+         'isAvailable': True, 'issuedate': 0}], 'count': 1
+}
+
+```
+
+
+## Check available before issuing
+**You send:**  book_id .
+
+
+**Request:**
+```json
+POST /isbookavailable
+Accept: application/json
+Content-Type: application/json
+
+
+select isavailable from shelfease.books_master where book_id=25257;
+
+{
+    'book_id': '25257'
+}
+
+
+**Successful Response:**
+200 OK
+
+{
+    'available': True
+}
+
+```
+
+
+## Get All members
+**You send:**  null .
+
+
+**Request:**
+```json
+POST /members/all
+Accept: application/json
+Content-Type: application/json
+
+select * from shelfease.members;
+
+**Successful Response:**
+200 OK
+
+
+{
+    'message': 'success', 'data': [{'id': 6, 'name': 'Kumar Harsh', 'email':
+     'khchoudhary8@gmail.com', 'phone': '7979844513', 'mem_status': True, 
+     'books_id': [26968], 'due_amt': 610}, {'id': 9, 'name': 'Sumeet', 'email':
+      'sumeet1709@gmail.com', 'phone': '1111223344', 'mem_status': True, 
+      'books_id': [9742, 32816, 2912], 'due_amt': 210}, {'id': 4, 'name': 
+      'Will Smith', 'email': 'will.smith@gmail.com', 'phone': '9986754563',
+       'mem_status': True, 'books_id': [], 'due_amt': 0}, {'id': 2, 'name':
+        'Jane Smith', 'email': 'jane@example.com', 'phone': '987-654-3210',
+         'mem_status': True, 'books_id': [], 'due_amt': 0}], 'count': 4
+}
+
+```
+
+
+## Issue Book
+**You send:**  book_id and member_id .
+
+
+**Request:**
+```json
+POST /members/all
+Accept: application/json
+Content-Type: application/json
+
+{
+    'member_id': '4',
+     'book_id': '25257'
+}
+
+select book_list from shelfease.members where member_id=4
+update shelfease.books_master set issuedate=1691931114 where book_id=25257;
+update shelfease.books_master set isavailable=false where book_id=25257;
+update shelfease.members set book_list=ARRAY[25257] where member_id=4;
+
+**Successful Response:**
+200 OK
+
+{
+    'message': 'Book Issued'
+}
+
+```
+
+## Return Book
+**You send:**  book_id and member_id .
+
+
+**Request:**
+```json
+POST /returnbook
+Accept: application/json
+Content-Type: application/json
+
+{
+    'book_id': '25257',
+     'member_id': '4',
+      'amt_returned': '1'
+}
+
+select book_list from shelfease.members where member_id=4
+update shelfease.members set due_amt=0 where member_id=4 ;
+update shelfease.members set book_list=ARRAY[]::integer[] where member_id=4;
+update shelfease.books_master set issuedate=0 where book_id=25257;
+update shelfease.books_master set isavailable=true where book_id=25257;
+
+**Successful Response:**
+200 OK
+
+{
+    'message': 'Book returned'
+}
+
+```
+
+
+## Add Book
+
+**Request:**
+```json
+POST /addbook
+Accept: application/json
+Content-Type: application/json
+
+{
+    'num_pages': '12', 'authors': 'kumar', 'average_rating': '4', 
+    'book_id': '3', 'isbn': '1', 'isbn13': '13', 'language_code': 
+    'Ger', 'publication_date': '28-10-2012', 'publisher': 'kumar', 
+    'ratings_count': '66', 'text_reviews_count': '13', 'title': 'book1'
+}
+
+insert into shelfease.books_master(book_id,title,authors,average_rating,
+isbn,isbn13,language_code,num_pages,ratings_count,text_reviews_count,
+publication_date,publisher) values (3,'book1','kumar',4.0,'1','13','Ger'
+,12,66,13,'28-10-2012','kumar');
+
+
+**Successful Response:**
+200 OK
+
+{
+    'message': 'data added successfully'
+}
+
+```
+
+
+## Add Members
+
+You send: name, email, phone
+**Request:**
+```json
+POST /addmembers
+Accept: application/json
+Content-Type: application/json
+
+{
+    'name': 'Harsh',
+     'email': 'w@gmail.com',
+      'phone': '2345678987'
+}
+
+insert into shelfease.members (name, email,phone) values ('Harsh','w@gmail.com','2345678987');
+
+**Successful Response:**
+200 OK
+
+{
+    'message': 'Member added successfully'
+}
+
+```
+
+
+## Delete Members
+
+You send: name, email, phone
+**Request:**
+```json
+POST /memberdelete
+Accept: application/json
+Content-Type: application/json
+
+
+{
+    'member_id': '10'
+}
+
+
+**Successful Response:**
+200 OK
+
+{
+   'message': 'Delete Successful'
+
+}
+
+```
+
+## Delete Book
+
+You send: name, email, phone
+**Request:**
+```json
+POST /bookdelete
+Accept: application/json
+Content-Type: application/json
+
+{
+    'book_id': '44145'
+}
+
+delete from shelfease.books_master where book_id=44145
+
+**Successful Response:**
+200 OK
+
+{
+   'message': 'Delete Successful'
+
+}
+
+```
+## Queries
+
+<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/38c0ebfe-a732-45ac-bb34-3801237d83a4.png" width="880" height="550"> 
+
+
+
+<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/8cadeb54-b647-4568-b088-d184a9fa5d63.png" width="880" height="550"> 
+## Contact
+
+### Thank you
+
+#### Made by Kumar Harsh
+#### BIT Mesra
+#### khchoudhary8@gmail.com
