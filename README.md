@@ -40,7 +40,7 @@ Created a user-friendly application for a local library to simplify daily tasks.
 
 
 
-| Login Page  | Second Header |
-| ------------- | ------------- |
-| <img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/546fa23d-270b-402a-bbac-4a600353914a.jpg" width="180" height="400">  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Login Page  | Home Page | Search Books |
+| ------------- | ------------- | ------------- |
+| <img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/546fa23d-270b-402a-bbac-4a600353914a.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/b0ed4a9d-7c37-4743-b4cb-0f444c5f1414.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/3eb82318-c0e7-4084-899b-7675e456c7ee.jpg" width="180" height="400"> |
+| Content Cell  | Content Cell  | Content Cell  |
