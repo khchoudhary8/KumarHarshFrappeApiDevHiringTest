@@ -72,4 +72,4 @@ password: admin_123
 <img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/4e472df2-318c-417c-859a-ad047a1ba686.png" width="880" height="550"> 
 
 
-<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/060cdd33-bc78-4972-bb92-fcea1f0148c1.png" width="880" height="550"> 
+<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/060cdd33-bc78-4972-bb92-fcea1f0148c1.png" width="920" height="550"> 
