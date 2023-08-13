@@ -1,4 +1,4 @@
-# frape2
+# shelf_ease
 
 A new Flutter project.
 

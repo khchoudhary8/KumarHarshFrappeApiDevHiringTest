@@ -1,4 +1,4 @@
-name: frape2
+name: shelf_ease
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -50,8 +50,16 @@ dependencies:
   document_file_save_plus: ^2.0.0
   pie_chart: ^5.3.2
   url_launcher: ^6.1.11
+  flutter_native_splash: ^2.3.1
 
+flutter_icons:
+  image_path: "assets/shelfease.png"
+  android: true
+  ios: true
 
+flutter_native_splash:
+  image: assets/shelfease.png
+  color: 42a5f5
 
 dev_dependencies:
   flutter_test:
@@ -97,10 +105,10 @@ flutter:
     - assets/mockup1.jpg
     - assets/mockup2.jpg
     - assets/mockup3.jpg
-    - assets/icon.png
     - assets/confirmation_item.png
     - assets/report.png
     - assets/add-friend.png
+    - assets/shelfease.png
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
