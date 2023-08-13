@@ -75,7 +75,7 @@ class DBQueries():
                 if query!=None:
                     cur.execute(query)
                     result = cur.fetchall()
-                    print(result)
+                   
                 return result
         except Exception as e:
             print(e)

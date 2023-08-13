@@ -30,6 +30,7 @@ def importData():
             status = {}
             reqBody = request.json
             if reqBody:
+                print(reqBody)
                 # Import Data
                 masterData = DataCollector().importData(reqBody)
                 status["message"] = "Data imported successfully"
@@ -43,6 +44,7 @@ def importData():
                 status["count"] = len(masterData)
             else:
                 status["message"] = "missing required parameters"
+            print(status)
             return status, 200, {"message": "Success"}
         else:
             raise Exception("Unsupported method")
@@ -59,12 +61,15 @@ def user():
             status = {}
             reqBody = request.json
             if reqBody:
+                print(reqBody)
                 state, users = DBQueries().verifyuser(reqBody)
                 status["users"] = users
                 status["state"] = state
             else:
                 status["message"] = "missing required parameters"
+            print(status)
             return status, 200, {"message": "Success"}
+        
     except Exception as e:
         message = {}
         message["error"] = e
@@ -78,6 +83,7 @@ def getData():
             status = {}
             reqBody = request.json
             if reqBody is None:
+                print(reqBody)
                 reqBody = {"title": ""}
                 masterData = DBQueries().getDbData(reqBody)
                 status["message"] = "Success"
@@ -88,6 +94,7 @@ def getData():
                 status["message"] = "Success"
                 status["data"] = masterData
                 status["count"] = len(masterData)
+            print(status)
             return status, 200, {"message": "Success"}
         else:
             raise Exception("Invalid request")
@@ -105,7 +112,9 @@ def getmembers():
         status["message"] = "success"
         status["data"] = masterData
         status["count"] = len(masterData)
+        print(status)
         return status, 200, {"message": "success"}
+    
     except Exception as e:
         message = {}
         message["error"] = e
@@ -119,10 +128,12 @@ def isbookavailable():
             status = {}
             reqBody = request.json
             if reqBody:
+                print(reqBody)
                 state = DBQueries().bookisavailable(reqBody)
                 status["available"] = state
             else:
                 status["message"] = "reqBody Missing"
+            print(status)
             return status, 200, {"message": "Success"}
         else:
             raise Exception("Invalid request")
@@ -139,10 +150,12 @@ def addbook():
             status = {}
             reqBody = request.json
             if reqBody:
+                print(reqBody)
                 DBQueries().addBooks(reqBody)
                 status["message"] = "data added successfully"
             else:
                 status["message"] = "reqBody Missing"
+            print(status)
             return status, 200, {"message": "Success"}
         else:
             raise Exception("Invalid request")
@@ -159,10 +172,12 @@ def addmembers():
             status = {}
             reqBody = request.json
             if reqBody:
+                print(reqBody)
                 DBQueries().addmembers(reqBody)
                 status["message"] = "Member added successfully"
             else:
                 status["message"] = "reqBody Missing"
+            print(status)
             return status, 200, {"message": "Success"}
         else:
             raise Exception("Invalid request")
@@ -180,6 +195,7 @@ def issuebook():
             status = {}
             reqBody = request.json
             if reqBody:
+                print(reqBody)
                 # STEP 1 : recalculate its due_amt
                 # STEP 2 : validate the due amount(i.e. <=500)
                 # STEP 3 : issue book
@@ -187,6 +203,7 @@ def issuebook():
                 status["message"] = "Book Issued" if state else "Book cannot be issued, Dues may be over Rs.500"
             else:
                 status["message"] = "reqBody Missing"
+            print(status)
             return status, 200, {"message": "Success"}
         else:
             raise Exception("Invalid request")
@@ -204,12 +221,14 @@ def returnbook():
             status = {}
             reqBody = request.json
             if reqBody:
+                print(reqBody)
                 state = DBQueries().return_book(reqBody)
                 status["message"] = (
                     "Book returned" if state else "Book cannot be returned"
                 )
             else:
                 status["message"] = "reqBody Missing"
+            print(status)
             return status, 200, {"message": "Success"}
         else:
             raise Exception("Invalid request")
@@ -226,10 +245,12 @@ def deletebook():
             status = {}
             reqBody = request.json
             if reqBody:
+                print(reqBody)
                 state = DBQueries().deleteBook(reqBody)
                 status["message"] = "Delete Successful"
             else:
                 status["message"] = "reqBody Missing"
+            print(status)
             return status, 200, {"message": "Success"}
         else:
             raise Exception("Invalid request")
@@ -246,10 +267,12 @@ def deletemember():
             status = {}
             reqBody = request.json
             if reqBody:
+                print(reqBody)
                 state = DBQueries().deleteMem(reqBody)
                 status["message"] = "Delete Successful" if state else "Failed"
             else:
                 status["message"] = "reqBody Missing"
+            print(status)
             return status, 200, {"message": "Success"}
         else:
             raise Exception("Invalid request")
