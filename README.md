@@ -18,6 +18,7 @@ Created a user-friendly application for a local library to simplify daily tasks.
 - DB Structure
 - API Docs
 - Queries
+- Contact
 ## Features
  - Login Authentication and logout
  - Import Books: Librarians can import books into DB (PostGre SQL). Allows Count, Title, Author, Isbn, Publisher, Pages as params.
