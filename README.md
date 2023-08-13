@@ -40,7 +40,18 @@ Created a user-friendly application for a local library to simplify daily tasks.
 
 
 
-| Login Page  | Home Page | Search Books |
-| ------------- | ------------- | ------------- |
-| <img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/546fa23d-270b-402a-bbac-4a600353914a.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/b0ed4a9d-7c37-4743-b4cb-0f444c5f1414.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/3eb82318-c0e7-4084-899b-7675e456c7ee.jpg" width="180" height="400"> |
-| Content Cell  | Content Cell  | Content Cell  |
+| Login Page  | Home Page | Search Books | Dashboard |
+| ------------- | ------------- | ------------- |  ------------- |
+| <img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/546fa23d-270b-402a-bbac-4a600353914a.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/b0ed4a9d-7c37-4743-b4cb-0f444c5f1414.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/3eb82318-c0e7-4084-899b-7675e456c7ee.jpg" width="180" height="400"> |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/fdd2eb87-fac0-417f-a932-183ec7e2a0cc.jpg" width="180" height="400"> 
+
+| Profile  | Import Books | Add Books | Import Confirm Screen |
+| ------------- | ------------- | ------------- |  ------------- |
+| <img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/4da885f3-a161-417d-87fb-79524cfa3d0a.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/d7209e1d-d07a-478b-b265-a0f6b835985e.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/4115f611-b987-4bf7-842a-df8925039796.jpg" width="180" height="400"> |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/5983d1dc-12bf-4457-acba-152181e03d3a.jpg" width="180" height="400"> 
+
+| Issue Books  | Book Detail | Select Member for Issuing | Book Search Result with filters |
+| ------------- | ------------- | ------------- |  ------------- |
+| <img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/8c941164-b4b3-41ff-bcd5-8ff4411dd667.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/e32f31f7-0ed4-4544-ab27-269e0d2f16b7.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/6e4d88b3-6bd5-4420-9263-d6748bb9dfc2.jpg" width="180" height="400"> |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/d0226286-415b-456a-8d2e-c1e4d702f6d9.jpg" width="180" height="400"> 
+
+| All Members  | Members respective books issued | Add Members | Report |
+| ------------- | ------------- | ------------- |  ------------- |
+| <img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/7aad5513-8440-4a9b-afba-1ff134c555e5.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/2f1b0bf7-d0e2-4997-8007-de0ed0d5f2d1.jpg" width="180" height="400">  |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/b19bb2f0-ce3f-412e-842d-365be8b68d21.jpg" width="180" height="400"> |<img src="https://github.com/khchoudhary8/KumarHarshFrappeApiDevHiringTest/assets/76583677/e6f20dbc-7f75-43c6-955c-06f0dd892ddf.jpg" width="180" height="400"> 
