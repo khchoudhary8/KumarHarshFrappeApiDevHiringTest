@@ -88,7 +88,7 @@ This API uses `POST` request to communicate and HTTP to indenticate status and e
 
 
 **Request:**
-```json
+```javascript
 POST /user/verify
 Accept: application/json
 Content-Type: application/json
